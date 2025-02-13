@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Homepage</title>
+</head>
+<body>
+	<h2>This is the Homepage</h2>
+    <h4>Welcome!</h4>
+    {% include 'base.html' %}
+
+	{% for cl in client %}
+
+		<p>ID: {{ cl.id }}</p>
+		<p>Name: {{ cl.name }}</p>
+		<p>Profession: {{ cl.profession }}</p>
+		<br>
+
+	{% endfor %}
+
+</body>
+</html>
