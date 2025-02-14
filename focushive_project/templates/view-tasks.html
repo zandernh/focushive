@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Task Dashboard</title>
+</head>
+<body>
+    {% include 'base.html' %}
+    <h2>CRUD - Read all tasks</h2>
+
+	{% for task in tasks %}
+
+		<h4>Task: {{task.title}}</h4>
+		<p>ID: {{task.id}}</p>
+		<p>Content: {{task.content}}</p>
+		<p>Date Created: {{task.date_posted}}</p>
+		<br>
+
+	{% endfor %}
+    
+
+</body>
+</html>
