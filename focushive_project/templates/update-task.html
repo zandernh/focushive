@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Update a Task</title>
+</head>
+<body>
+    {% include 'base.html' %}
+    <h2>CRUD - Update a task</h2>
+    <br>
+    <form method="POST", autocomplete="off">
+
+        {% csrf_token %}
+
+        {{form.as_p}}
+
+        <input type="submit" value="Submit" >
+
+    </form>
+</body>
+</html>

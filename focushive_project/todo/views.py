@@ -15,7 +15,7 @@ def my_login(request):
     return render(request, 'my-login.html')
 
 
-# Create a Task
+# - CREATE a Task
 
 def createTask(request):
 
@@ -35,7 +35,7 @@ def createTask(request):
 
     return render(request, 'create-task.html', context=context)
 
-# Read a Task
+# - READ a Task
 
 def viewTask(request):
 
@@ -44,3 +44,32 @@ def viewTask(request):
     context = {'tasks' : tasks}
 
     return render(request, 'view-tasks.html', context=context)
+
+
+# - UPDATE a Task
+
+def updateTask(request, pk):
+
+    task = Task.objects.get(id=pk)
+
+    form = TaskForm(instance=task)
+
+    if request.method == 'POST':
+        
+        form = TaskForm(request.POST, instance=task)
+
+        if form.is_valid():
+
+            form.save()
+
+            return redirect("view-tasks")
+        
+    context = {'form': form}
+
+    return render(request, 'update-task.html', context=context)
+
+# - DELETE a Task
+
+def deleteTask(request):
+
+    return render(request, 'delete-task.html')

@@ -8,19 +8,21 @@ urlpatterns = [
     path('my-login', views.my_login),
 
 
-    # Crud Operations
+    # ------------------- CRUD Operations ------------------- #
 
 
-    # Create Task
-    path('create-task', views.createTask),
+    # - CREATE Task
+    path('create-task', views.createTask, name="create-task"),
 
-    # Read Task
+    # - READ Task
     path('view-tasks', views.viewTask, name="view-tasks"),
+
+    # - UPDATE Task
+    path('update-task/<str:pk>/', views.updateTask, name="update-task"),
+
+    # - DELETE Task
+    path('delete-task/<str:pk>/', views.deleteTask, name='delete-task'),
 ]
-
-
-
-
 
 
 
