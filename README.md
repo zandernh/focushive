@@ -6,3 +6,6 @@ Python built Task Management application using Django, PostgreSQL and Bootstrap 
 
 2025/02/14
 -- Built some basic Task Creation and Reading functionality as part of CRUD
+
+2025/02/24
+-- Built the Task Update and Delete functionality as part of CRUD
