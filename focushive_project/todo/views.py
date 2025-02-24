@@ -70,6 +70,16 @@ def updateTask(request, pk):
 
 # - DELETE a Task
 
-def deleteTask(request):
+def deleteTask(request, pk):
 
-    return render(request, 'delete-task.html')
+    task = Task.objects.get(id=pk)
+
+    if request.method == "POST":
+
+        task.delete()
+
+        return redirect("view-tasks")
+    
+    context = {'object': task}
+
+    return render(request, 'delete-task.html', context=context)
