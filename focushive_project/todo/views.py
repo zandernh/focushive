@@ -1,15 +1,12 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from .models import Task
-from .forms import TaskForm
+from .forms import TaskForm, CreateUserForm
 
 # Create your views here.
 
 def home(request):
     return render(request, 'index.html')
-
-def register(request):
-    return render(request, 'register.html')
 
 def my_login(request):
     return render(request, 'my-login.html')
@@ -74,12 +71,27 @@ def deleteTask(request, pk):
 
     task = Task.objects.get(id=pk)
 
+    form = TaskForm(instance=task)
+
+    return render(request, 'delete-task.html')
+
+
+# - REGISTERING / CREATING a User
+
+def register(request):
+
+    form = CreateUserForm()
+
     if request.method == "POST":
+        
+        form = CreateUserForm(request.POST)
 
-        task.delete()
+        if form.is_valid():
 
-        return redirect("view-tasks")
+            form.save()
+
+            return HttpResponse("User was registered successfully")
+        
+    context = {'form' : form}
     
-    context = {'object': task}
-
-    return render(request, 'delete-task.html', context=context)
+    return render(request, 'register.html', context=context)

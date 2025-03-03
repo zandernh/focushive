@@ -4,7 +4,6 @@ from . import views
 
 urlpatterns = [
     path('', views.home),
-    path('register', views.register),
     path('my-login', views.my_login),
 
 
@@ -22,6 +21,13 @@ urlpatterns = [
 
     # - DELETE Task
     path('delete-task/<str:pk>/', views.deleteTask, name='delete-task'),
+
+
+    # ------------------- User Registration ------------------- #
+
+
+    path('register', views.register, name="register"),
+
 ]
 
 

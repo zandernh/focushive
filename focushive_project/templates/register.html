@@ -9,5 +9,14 @@
 	<h2>This is the Registration page</h2>
     <h4>Sign up for our cool new app!</h4>
     {% include 'base.html' %}
+
+	<form method="POST" autocomplete="off">
+
+        {% csrf_token %}
+
+        {{form.as_p}}
+
+
+        <input type="submit" value="Register"/>
 </body>
 </html>
