@@ -9,5 +9,13 @@
 	<h2>This is the Login Page</h2>
     <h4>Do you remember your sign in?</h4>
     {% include 'base.html' %}
+	<form method="POST" autocomplete="off">
+
+        {% csrf_token %}
+
+        {{form.as_p}}
+
+        <input type="submit" value="Submit"/>
+    </form>
 </body>
 </html>
