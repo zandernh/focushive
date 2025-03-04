@@ -3,7 +3,7 @@ from django.http import HttpResponse
 from .models import Task
 from .forms import TaskForm, CreateUserForm, UserLoginForm
 from django.contrib.auth.models import auth
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login, logout
 
 # Create your views here.
 
@@ -12,7 +12,8 @@ def home(request):
     return render(request, 'index.html')
 
 
-# - CREATE a Task
+# --------------------------------------- CREATE a Task -------------------------------------- #
+# -------------------------------------------------------------------------------------------- #
 
 def createTask(request):
 
@@ -33,7 +34,8 @@ def createTask(request):
     return render(request, 'create-task.html', context=context)
 
 
-# - READ a Task
+# --------------------------------------- READ a Task ---------------------------------------- #
+# -------------------------------------------------------------------------------------------- #
 
 def viewTask(request):
 
@@ -44,7 +46,8 @@ def viewTask(request):
     return render(request, 'view-tasks.html', context=context)
 
 
-# - UPDATE a Task
+# -------------------------------------- UPDATE a Task --------------------------------------- #
+# -------------------------------------------------------------------------------------------- #
 
 def updateTask(request, pk):
 
@@ -67,7 +70,8 @@ def updateTask(request, pk):
     return render(request, 'update-task.html', context=context)
 
 
-# - DELETE a Task
+# -------------------------------------- DELETE a Task --------------------------------------- #
+# -------------------------------------------------------------------------------------------- #
 
 def deleteTask(request, pk):
 
@@ -78,7 +82,8 @@ def deleteTask(request, pk):
     return render(request, 'delete-task.html')
 
 
-# - REGISTERING / CREATING a User
+# ----------------------------------- User Registration -------------------------------------- #
+# -------------------------------------------------------------------------------------------- #
 
 def register(request):
 
@@ -99,7 +104,8 @@ def register(request):
     return render(request, 'register.html', context=context)
 
 
-# - LOGIN a User
+# -------------------------------------- USER Login ------------------------------------------ #
+# -------------------------------------------------------------------------------------------- #
 
 def login(request):
 
@@ -120,9 +126,26 @@ def login(request):
 
                 auth.login(request, user)
 
-                return HttpResponse("You have logged in")
+                return redirect("dashboard")
     
     context = {'form' : form}
 
     return render(request, 'login.html', context=context)
 
+
+# -------------------------------------- USER Dashboard -------------------------------------- #
+# -------------------------------------------------------------------------------------------- #
+
+def dashboard(request):
+
+    return render(request, 'dashboard.html')
+
+
+# -------------------------------------- USER Logout ----------------------------------------- #
+# -------------------------------------------------------------------------------------------- #
+
+def logout(request):
+
+    auth.logout(request)
+
+    return redirect("")

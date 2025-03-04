@@ -3,9 +3,10 @@ from django.urls import path
 from . import views
 
 urlpatterns = [
-    path('', views.home),
+    path('', views.home, name=""),
 
     # ------------------- CRUD Operations ------------------- #
+    # ------------------------------------------------------- #
 
 
     # - CREATE Task
@@ -22,15 +23,29 @@ urlpatterns = [
 
 
     # ------------------- User Registration ------------------- #
+    # --------------------------------------------------------- #
 
 
     path('register', views.register, name="register"),
 
 
-    # ------------------- User Login ------------------- #  
+    # ------------------- User Login ------------------- #
+    # -------------------------------------------------- #  
 
 
     path('login', views.login, name='login'),
+
+
+    # ------------------- User Dashboard ------------------- #
+    # ------------------------------------------------------ # 
+
+    path('dashboard', views.dashboard, name='dashboard'),
+
+
+    # ------------------- User Logout ------------------- #
+    # --------------------------------------------------- # 
+
+    path('user-logout', views.logout, name='user-logout'),
 
 ]
 
