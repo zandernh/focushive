@@ -1,18 +1,13 @@
 from django.forms import ModelForm
-from .models import Task
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import AuthenticationForm
 from django.forms.widgets import PasswordInput, TextInput
 from django import forms
 
-class TaskForm(ModelForm):
 
-    class Meta:
-
-        model = Task
-        fields = '__all__'
-
+# ---------------- Register a User ---------------- #
+# ------------------------------------------------- #
 
 class CreateUserForm(UserCreationForm):
 
@@ -21,6 +16,9 @@ class CreateUserForm(UserCreationForm):
         model = User
         fields = ['first_name', 'last_name', 'email', 'username', 'password1', 'password2']
 
+
+# ---------------- Login a User ------------------- #
+# ------------------------------------------------- #
 
 class UserLoginForm(AuthenticationForm):
 
