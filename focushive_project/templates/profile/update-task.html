@@ -15,12 +15,12 @@
 
         <link rel="stylesheet" href="{% static 'css/styles.css' %}">
         
-        <title>Register</title>
+        <title>Update a Task</title>
     </head>
 <body>
     <div class="container bg-white shadow-md p-5 form-layout">
-        <h2>Registration page</h2>
-        <h4>Boost your productivity—organize tasks, stay focused, and get more done!</h4>
+        <h2>Update Task</h2>
+        <h4>So what are you updating?</h4>
         <hr>
 
         <!-- {% include 'base.html' %} -->
@@ -31,31 +31,12 @@
 
             {% csrf_token %}
 
-            {{form.username|as_crispy_field}}
-
+            {{form.title|as_crispy_field}}
             <br>
-
-            {{form.first_name|as_crispy_field}}
-
-            <br>
-
-            {{form.last_name|as_crispy_field}}
-
-            <br>
-
-            {{form.email|as_crispy_field}}
-
-            <br>
-
-            {{form.password1|as_crispy_field}}
-           
-            <br>
-
-            {{form.password2|as_crispy_field}}
+            {{form.content|as_crispy_field}}
 
 
-
-            <input type="submit" value="Register" class="btn btn-primary"/>
+            <input type="submit" value="Update" class="btn btn-primary"/>
     </div>
 </body>
 </html>
