@@ -15,16 +15,14 @@
 
         <link rel="stylesheet" href="{% static 'css/styles.css' %}">
         
-        <title>Update a Task</title>
+        <title>Focushive | Update Task</title>
     </head>
 <body>
+    {% include 'profile/base.html' %}
     <div class="container bg-white shadow-md p-5 form-layout">
         <h2>Update Task</h2>
         <h4>So what are you updating?</h4>
         <hr>
-
-        <!-- {% include 'base.html' %} -->
-
         <br>
 
         <form method="POST" autocomplete="off">
@@ -36,7 +34,19 @@
             {{form.content|as_crispy_field}}
 
 
-            <input type="submit" value="Update" class="btn btn-primary"/>
+            <div>
+                <a class="btn btn-outline-primary navbar-btn btn-inline-space" type="button" href="{% url 'view-task' %}">Go Back</a>
+                <input type="submit" value="Update" class="btn btn-primary"/>
+            </div>
     </div>
+
+        <!-- jQuery -->
+        <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+        <!-- Bootstrap 5 JS -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    
+        <!-- Custom JS -->
+        <script src="{% static 'js/app.js' %}"></script>
 </body>
 </html>

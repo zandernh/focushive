@@ -15,16 +15,14 @@
 
         <link rel="stylesheet" href="{% static 'css/styles.css' %}">
         
-        <title>Read a Task</title>
+        <title>Focushive | View Task</title>
     </head>
 <body>
+     {% include 'profile/base.html' %}
     <div class="container bg-white shadow-md p-5 form-layout read-task-clean">
         <h2>Here's your tasks</h2>
         <h4>Planning on crossing them off your list?</h4>
         <hr>
-
-        <!-- {% include 'base.html' %} -->
-
         <br>
 
         {% for tsk in task %}
@@ -37,8 +35,8 @@
                 <br><br>
 
                 <div>
-                    <a href="{% url 'update-task' tsk.id tsk.title %}" class="btn-inline-space">Update</a>                 
-                    <a href="{% url 'delete-task' tsk.id tsk.title %}">Delete</a>
+                    <a class="btn btn-outline-primary navbar-btn btn-inline-space" type="button" href="{% url 'update-task' tsk.id tsk.title %}">Update</a>
+                    <a class="btn btn-primary navbar-btn" type="button" href="{% url 'delete-task' tsk.id tsk.title %}">Delete</a>
                 </div>
 
             </div>
@@ -47,5 +45,13 @@
 
     </div>
      <br>
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+    <!-- Bootstrap 5 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Custom JS -->
+    <script src="{% static 'js/app.js' %}"></script>
 </body>
 </html>

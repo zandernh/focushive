@@ -15,16 +15,15 @@
 
         <link rel="stylesheet" href="{% static 'css/styles.css' %}">
         
-        <title>Register</title>
+        <title>Focushive | Register</title>
     </head>
+
+    {% include 'pre-base.html' %}
 <body>
     <div class="container bg-white shadow-md p-5 form-layout">
         <h2>Registration page</h2>
         <h4>Boost your productivity—organize tasks, stay focused, and get more done!</h4>
         <hr>
-
-        <!-- {% include 'base.html' %} -->
-
         <br>
 
         <form method="POST" autocomplete="off">
@@ -33,29 +32,26 @@
 
             {{form.username|as_crispy_field}}
 
-            <br>
 
             {{form.first_name|as_crispy_field}}
 
-            <br>
 
             {{form.last_name|as_crispy_field}}
 
-            <br>
 
             {{form.email|as_crispy_field}}
 
-            <br>
 
             {{form.password1|as_crispy_field}}
            
-            <br>
 
             {{form.password2|as_crispy_field}}
 
-
-
+            
             <input type="submit" value="Register" class="btn btn-primary"/>
+            <br><br>
+            <p>Already have an account? <a href="{% url 'login' %}">Login</a></p>
+
     </div>
 </body>
 </html>

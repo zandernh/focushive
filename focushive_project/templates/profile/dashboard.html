@@ -13,19 +13,32 @@
 
         <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
         
-        <title>Dashboard</title>
+        <title>Focushive | Dashboard</title>
     </head>
 <body>
+    {% include 'profile/base.html' %}
     <div class="container bg-white shadow-md p-5 form-layout">
-        <h2>This is your Dashboard</h2>
-        <h4>From here you can do all the things!</h4>
-        <!-- {% include 'base.html' %} -->
+        <h2>Focushive</h2>
+        <br>
+        <h4>Welcome to Focushive -  <br>your personal task management application</h4>
+        <hr>
+        <br>
+        <p>Select from the buttons up top what you want to do next. Create a task and start getting productive!</p>
         <br><br>
-        <a href="{% url 'create-task' %}">Create Task</a>
-        <br><br>
-        <a href="{% url 'view-task' %}">View Tasks</a>
-        <br><br>
-        <a href="{% url 'user-logout' %}">Logout</a>
+
+        <div>
+            <a href="{% url 'profile-management' %}" class="btn-inline-space">Update Profile</a>
+            <a href="{% url 'delete-account' %}">Delete Account</a>
+        </div>
+
     </div>
+            <!-- jQuery -->
+            <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+            <!-- Bootstrap 5 JS -->
+            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+        
+            <!-- Custom JS -->
+            <script src="{% static 'js/app.js' %}"></script>
 </body>
 </html>

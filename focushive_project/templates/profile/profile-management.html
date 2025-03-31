@@ -15,13 +15,13 @@
 
         <link rel="stylesheet" href="{% static 'css/styles.css' %}">
         
-        <title>Focushive | Delete Task</title>
+        <title>Focushive | Profile Management</title>
     </head>
 <body>
     {% include 'profile/base.html' %}
     <div class="container bg-white shadow-md p-5 form-layout">
-        <h2>Delete Task</h2>
-        <h4>So what are you updating?</h4>
+        <h2>Update Your Profile</h2>
+        <!-- <h4>Something about task creation goes here.</h4> -->
         <hr>
         <br>
 
@@ -29,14 +29,17 @@
 
             {% csrf_token %}
 
-            <p>Are you sure you want to delete this task?</p>
+            {{user_form.username|as_crispy_field}}
+            <br>
+            {{user_form.first_name|as_crispy_field}}
+            <br>
+            {{user_form.last_name|as_crispy_field}}
+            <br>
+            {{user_form.email|as_crispy_field}}
 
-            <div>
-                <a class="btn btn-outline-primary navbar-btn btn-inline-space" type="button" href="{% url 'view-task' %}">Go Back</a>
-                <input type="submit" value="Delete" class="btn btn-primary"/>
-            </div>
+
+            <input type="submit" value="Create" class="btn btn-primary"/>
     </div>
-
         <!-- jQuery -->
         <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 

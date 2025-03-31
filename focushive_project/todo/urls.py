@@ -24,22 +24,32 @@ urlpatterns = [
 
     path('dashboard', views.dashboard, name='dashboard'),
 
+    # ------------------- PROFILE MANAGEMENT --------------- #
+    # ------------------------------------------------------ #
+
+    path('profile-management', views.profileManagement, name='profile-management'),
+
+    # ------------------- DELETE ACCOUNT ------------------- #
+    # ------------------------------------------------------ #
+
+    path('delete-account', views.deleteAccount, name='delete-account'),
+
     # ------------------- CREATE TASK ---------------------- #
     # ------------------------------------------------------ # 
 
     path('create-task', views.createTask, name='create-task'),
 
-    # --------------------- READ TASK ---------------------- #
+    # ------------------- READ TASK ------------------------ #
     # ------------------------------------------------------ # 
 
     path('view-task', views.viewTask, name='view-task'),
 
-    # --------------------- UPDATE TASK -------------------- #
+    # ------------------- UPDATE TASK ---------------------- #
     # ------------------------------------------------------ #
 
     path('update-task/<str:pk>/<str:title>/', views.updateTask, name='update-task'),
     
-    # --------------------- DELETE TASK -------------------- #
+    # ------------------- DELETE TASK ---------------------- #
     # ------------------------------------------------------ #
 
     path('delete-task/<str:pk>/<str:title>/', views.deleteTask, name='delete-task'),

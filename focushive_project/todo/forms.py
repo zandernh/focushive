@@ -15,7 +15,7 @@ class CreateUserForm(UserCreationForm):
     class Meta:
 
         model = User
-        fields = ['username', 'first_name', 'last_name', 'email', 'password1', 'password2']
+        fields = ['username', 'first_name', 'last_name', 'email', 'password1', 'password2',]
 
 
 # ---------------- Login a User ------------------- #
@@ -36,4 +36,18 @@ class CreateTaskForm(forms.ModelForm):
         model = Task
         fields = ['title', 'content',]
         exclude = ['user',]
+
+
+# ---------------- User Profile Update ------------ #
+# ------------------------------------------------- #
+
+class userProfileUpdateForm(forms.ModelForm):
+
+    password = None
+
+    class Meta:
+
+        model = User
+        fields = ['username', 'first_name', 'last_name', 'email',]
+        exclude = ['password1', 'password2',]
 
