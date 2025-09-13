@@ -2,7 +2,7 @@
 
 A minimalist Django web app designed to help users track and manage their daily tasks with a focus on simplicity and efficiency.
 
-[🌐 Live Demo]([insert link to render hosted project here])
+[🌐 Live Demo](https://focushive.onrender.com/)
 
 ---
 
